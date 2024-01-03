@@ -32,3 +32,5 @@ class ExportToText:
             text = file.read()
 
         return text
+
+
