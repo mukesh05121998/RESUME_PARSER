@@ -1,4 +1,5 @@
 import PyPDF2
+import docx
 
 class ExportToText:
     def __init__(self, file_path):
@@ -15,4 +16,21 @@ class ExportToText:
                 text += page.extract_text()
 
         return text
+    
+    def docx_to_text(self):
+        text = ""
+        doc = docx.Document(self.file_path)
+
+        for paragraph in doc.paragraphs:
+            text += paragraph.text
+
+        return text
+    
+    def txt_to_text(self):
+        text = ""
+        with open(self.file_path, 'r', encoding='utf-8') as file:
+            text = file.read()
+
+        return text
+
 
